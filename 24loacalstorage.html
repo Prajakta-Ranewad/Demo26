@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>local storage</title>
+</head>
+<body>
+    <input type="text" placeholder="Enter the key">
+    <input type="text" placeholder="Enter the value">
+    <br><br>
+    <input type ="button" value="Store" onclick="storeData()">
+    <input type="button" value="Retrive" onclick="retriveData()">
+    <input type="button" value="Remove" onclick="removeData()">
+    <input type="button" value="Clear" onclick="clearData()">
+    <h1 id="result"></h1>
+    <script>
+        var inputTags=document.querySelectorAll("input")
+        function storeData()
+        {
+            var userkey=inputTags[0].value
+            var uservalue=inputTags[1].value
+            localStorage.setItem(userkey,uservalue)
+        }
+        function retriveData()
+        {
+            var userkey=inputTags[0].value
+            var localkey=localStorage.getItem(userkey)
+            document.getElementById("result").innerHTML=`key:${userkey} and value:${localkey}`
+        }
+        function removeData()
+        {
+            var userkey=inputTags[0].value
+            localStorage.removeItem(userkey)
+        }
+        function clearData()
+        {
+            localStorage.clear();
+        }
+    </script>
+</body>
+</html>
